@@ -1,3 +1,13 @@
+# Python Venvs en vscode settings
+**/.venv/
+**/.vscode/
+
+# Data folder
+**/data/
+
+# Data folder
+**/.env
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
