@@ -33,10 +33,12 @@ Het bestand met de daadwerkelijke logica van de grouper en enkele test scripts d
 ## Data map structuur
 De data map heeft de volgende structuur:
 
+```
 data/
 ├── grouper_bestaden/    # Subfolder met de XMLs met boombestanden en referenties
 ├── grouper_pickles/     # Subfolder met de verwerkte grouper bestanden voor elk jaar
 └── subtrajecten_input/  # Subfolder met data in gespecificeerd formaat om te grouperen
+```
 
 ### Invoerformaat
 Het verwachte formaat voor de invoerdata is als volgt (in CSV formaat met ; als seperator):
