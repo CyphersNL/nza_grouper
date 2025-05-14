@@ -12,7 +12,6 @@ Dit is een grouper van de NZA geschreven in Python die nog in ontwikkeling is. H
 - [Data map structuur](#Data-map-structuur)
 - [Installatie](#installatie)
 - [TODO](#todo)
-- [Bijdragen](#bijdragen)
 
 ## Beschrijving
 De NZA Grouper is een Python-implementatie van het Nederlandse Zorgautoriteit (NZA) grouperingssysteem. Dit systeem wordt gebruikt om zorgactiviteiten te groeperen in zorgproducten volgens de NZA-regels en richtlijnen.
@@ -58,7 +57,7 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-Vervolgens kan je de code afzonderlijk afvuren vanuit grouper.py of eventueel de Dockerfile gebruiken.In beide gevallen moeten de bestanden in de data folder klaar staan zoals hierboven aangegeven.
+Vervolgens kan je de code afzonderlijk afvuren vanuit grouper.py, groupertest.ps1 of eventueel de Dockerfile gebruiken.In alle gevallen moeten de bestanden in de data folder klaar staan zoals hierboven aangegeven.
 
 ## TODO
 - Automatisch aanmaken van folders waarin data wordt opgeslagen
@@ -70,6 +69,3 @@ Vervolgens kan je de code afzonderlijk afvuren vanuit grouper.py of eventueel de
 - Algemene refactoring van de code
 - Kijken of het nog sneller kan draaien door vooruitstrevend te grouperen (dus huidige node en de node vooruit)
 - Commentaar/documentatie code toevoegen
-
-## Bijdragen
-Bijdragen zijn welkom. Open voor grote issues graag eerst een issue om dit te bespreken.
