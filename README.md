@@ -4,7 +4,7 @@
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![Status: In Development](https://img.shields.io/badge/Status-In%20Development-orange.svg)]()
 
-Dit is een grouper van de NZA geschreven in Python die nog in ontwikkeling is. Het is momenteel mogelijk om met de grouper voor bijna alle specialismes zorgproducten te bepalen. Revalidatie en de specifieke regels die daarbij horen wat betreft minuten komen er momenteel nog niet goed uit. Het is verder getest op de grouperbestanden RZ24b voor het jaar 2021, en daar lijken correcte resultaten uit te komen.
+Dit is een grouper van de NZA geschreven in Python die nog in ontwikkeling is. Het is momenteel mogelijk om met de grouper voor bijna alle specialismes zorgproducten te bepalen. Revalidatie en de specifieke regels die daarbij horen wat betreft minuten en meer komen er momenteel nog niet goed uit. Het is getest op de grouperbestanden RZ24b voor het jaar 2021, en daar lijken correcte resultaten uit te komen.
 
 ## Inhoudsopgave
 - [Beschrijving](#beschrijving)
