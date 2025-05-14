@@ -38,15 +38,15 @@ def check_attribuut_groep_dicts(attribuut_groep_id, subtraject, jaar='2021'):
     """
     attri_dict = globals()["attri_dict"]
     boomparameters = globals()["boomparameters"]
-    Behandelklasse_dict = globals()[f"{jaar}_Behandelklasse_dict"]
-    Diagnosen_values = globals()[f"{jaar}_Diagnosen_values"]
-    Diagnosen_headers = globals()[f"{jaar}_Diagnosen_headers"]
-    ZorgActiviteiten_values = globals()[f"{jaar}_ZorgActiviteiten_values"]
-    ZorgActiviteiten_headers = globals()[f"{jaar}_ZorgActiviteiten_headers"]
-    ZorgVragen_values = globals()[f"{jaar}_ZorgVragen_values"]
-    ZorgVragen_headers = globals()[f"{jaar}_ZorgVragen_headers"]
-    Specialismen_values = globals()[f"{jaar}_Specialismen_values"]
-    Specialismen_headers = globals()[f"{jaar}_Specialismen_headers"]
+    behandelklasse_dict = globals()[f"{jaar}_Behandelklasse_dict"]
+    diagnosen_values = globals()[f"{jaar}_Diagnosen_values"]
+    diagnosen_headers = globals()[f"{jaar}_Diagnosen_headers"]
+    zorgactiviteiten_values = globals()[f"{jaar}_ZorgActiviteiten_values"]
+    zorgactiviteiten_headers = globals()[f"{jaar}_ZorgActiviteiten_headers"]
+    zorgvragen_values = globals()[f"{jaar}_ZorgVragen_values"]
+    zorgvragen_headers = globals()[f"{jaar}_ZorgVragen_headers"]
+    specialismen_values = globals()[f"{jaar}_Specialismen_values"]
+    specialismen_headers = globals()[f"{jaar}_Specialismen_headers"]
 
     hoeveelheid_true = 0
 
@@ -69,15 +69,15 @@ def check_attribuut_groep_dicts(attribuut_groep_id, subtraject, jaar='2021'):
 
         match veldnaam:
             case v if v[:10] == 'specialism':
-                column_positie = Specialismen_headers[v]
-                if Specialismen_values.get(subtraject.get_specialismen(), 999999) != 999999:
-                    if onder_filter == Specialismen_values[subtraject.get_specialismen()][column_positie]:
+                column_positie = specialismen_headers[v]
+                if specialismen_values.get(subtraject.get_specialismen(), 999999) != 999999:
+                    if onder_filter == specialismen_values[subtraject.get_specialismen()][column_positie]:
                         hoeveelheid_true = hoeveelheid_true + 1
 
             case v if v[:4] == 'diag' or v == 'icd_diagnosecode':
-                column_positie = Diagnosen_headers[v]
-                if Diagnosen_values.get(subtraject.get_diagnose_attribuut_code(), 999999) != 999999:
-                    if onder_filter == Diagnosen_values[subtraject.get_diagnose_attribuut_code()][column_positie]:
+                column_positie = diagnosen_headers[v]
+                if diagnosen_values.get(subtraject.get_diagnose_attribuut_code(), 999999) != 999999:
+                    if onder_filter == diagnosen_values[subtraject.get_diagnose_attribuut_code()][column_positie]:
                         hoeveelheid_true = hoeveelheid_true + 1
 
             case "leeftijd":
@@ -93,21 +93,21 @@ def check_attribuut_groep_dicts(attribuut_groep_id, subtraject, jaar='2021'):
                     hoeveelheid_true = hoeveelheid_true + 1
 
             case v if v[:9] == 'zorgvraag':
-                column_positie = ZorgVragen_headers[v]
-                if ZorgVragen_values.get(subtraject.get_zorgvraag_attribuut_code(), 99999) != 99999:
-                    if onder_filter == ZorgVragen_values[subtraject.get_zorgvraag_attribuut_code()][column_positie]:
+                column_positie = zorgvragen_headers[v]
+                if zorgvragen_values.get(subtraject.get_zorgvraag_attribuut_code(), 99999) != 99999:
+                    if onder_filter == zorgvragen_values[subtraject.get_zorgvraag_attribuut_code()][column_positie]:
                         hoeveelheid_true = hoeveelheid_true + 1
 
             case v if v[:14] == 'zorgactiviteit':
                 za_dict_subtraject = subtraject.get_zorgactiviteiten_dict()
-                column_positie = ZorgActiviteiten_headers[v]
-                common_keys = set(za_dict_subtraject.keys()) & set(ZorgActiviteiten_values.keys())
-                sum_za = sum(za_dict_subtraject[za] for za in common_keys if ZorgActiviteiten_values[za][column_positie] == onder_filter)
+                column_positie = zorgactiviteiten_headers[v]
+                common_keys = set(za_dict_subtraject.keys()) & set(zorgactiviteiten_values.keys())
+                sum_za = sum(za_dict_subtraject[za] for za in common_keys if zorgactiviteiten_values[za][column_positie] == onder_filter)
                 if int(onder_toet) <= sum_za <= int(boven_toet):
                     hoeveelheid_true = hoeveelheid_true + 1
 
             case "behandelklassecode":
-                behandelklasse_groep_dict = Behandelklasse_dict.get(subtraject.get_zorgproductgroepcode(), None)
+                behandelklasse_groep_dict = behandelklasse_dict.get(subtraject.get_zorgproductgroepcode(), None)
 
                 if behandelklasse_groep_dict is None:
                     pass
@@ -143,7 +143,7 @@ def loop_beslisboom_door(subtraject, jaar='2021', beslisregel_id='1468217'):
     1468217 is de start node voor zp groep 0 in 2024b
     """
     beslisboom = globals()["beslisboom"]
-    Zorgproductgroep_dict = globals()[f"{jaar}_Zorgproductgroep_dict"]
+    zorgproductgroep_dict = globals()[f"{jaar}_Zorgproductgroep_dict"]
 
     # Haal de gegevens op voor de beslisregelID
     attribuut_groep_id = beslisboom[beslisregel_id].get("AttribuutGroepId")
@@ -160,7 +160,7 @@ def loop_beslisboom_door(subtraject, jaar='2021', beslisregel_id='1468217'):
     elif attribuut_bool and label_true is not None:
         if len(label_true) == 6:
             subtraject.set_zorgproductgroepcode(label_true)
-            return loop_beslisboom_door(subtraject, jaar, Zorgproductgroep_dict[label_true])
+            return loop_beslisboom_door(subtraject, jaar, zorgproductgroep_dict[label_true])
         else:
             return label_true
     elif not attribuut_bool and beslis_regel_false is not None:
@@ -168,7 +168,7 @@ def loop_beslisboom_door(subtraject, jaar='2021', beslisregel_id='1468217'):
     elif not attribuut_bool and label_false is not None:
         if len(label_false) == 6:
             subtraject.set_zorgproductgroepcode(str(label_false))
-            return loop_beslisboom_door(subtraject, jaar, Zorgproductgroep_dict[label_false])
+            return loop_beslisboom_door(subtraject, jaar, zorgproductgroep_dict[label_false])
         else:
             return label_false
     else:

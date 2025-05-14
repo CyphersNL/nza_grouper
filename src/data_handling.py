@@ -15,31 +15,33 @@ def maak_subtrajecten_dict(df, path_csv=""):
                                                           'DiagnoseCode': str,
                                                           'zorgtype': str})
     first_row = df.row(0, named=True)
+
     # Maak een lege dictionary om de resultaten op te slaan
     subtraject_dict = {}
     saved_subtraject = first_row['Subtrajectnummer']
     zorgactiviteiten_dict = {}
-    dbcOpenDatum = first_row['dbcOpenDatum']
-    SpecialismeCode = first_row['SpecialismeCode']
+    dbc_open_datum = first_row['dbcOpenDatum']
+    specialisme_code = first_row['SpecialismeCode']
     zorgtype = first_row['zorgtype']
-    ZorgVraagCode = first_row['ZorgVraagCode']
-    DiagnoseCode = first_row['DiagnoseCode']
+    zorgvraag_code = first_row['ZorgVraagCode']
+    diagnose_code = first_row['DiagnoseCode']
     leeftijd = first_row['leeftijd']
     geslacht = first_row['geslacht']
     subtraject = None
+    
     for row in df.iter_rows(named=True):
         # Filter de dataframe voor het huidige subtrajectnummer
         if row['Subtrajectnummer'] != saved_subtraject:
             # Casus nieuw subtraject
             # Extraheer de relevante kolommen voor de subtraject class
-            subtraject = subt.Subtraject(DiagnoseCode, SpecialismeCode, ZorgVraagCode, zorgtype, geslacht,
-                                         leeftijd, dbcOpenDatum, None, "", zorgactiviteiten_dict, "")
+            subtraject = subt.Subtraject(diagnose_code, specialisme_code, zorgvraag_code, zorgtype, geslacht,
+                                         leeftijd, dbc_open_datum, None, "", zorgactiviteiten_dict, "")
             subtraject_dict[saved_subtraject] = subtraject
-            dbcOpenDatum = row['dbcOpenDatum']
-            SpecialismeCode = row['SpecialismeCode']
+            dbc_open_datum = row['dbcOpenDatum']
+            specialisme_code = row['SpecialismeCode']
             zorgtype = row['zorgtype']
-            ZorgVraagCode = row['ZorgVraagCode']
-            DiagnoseCode = row['DiagnoseCode']
+            zorgvraag_code = row['ZorgVraagCode']
+            diagnose_code = row['DiagnoseCode']
             leeftijd = row['leeftijd']
             geslacht = row['geslacht']
             saved_subtraject = row['Subtrajectnummer']

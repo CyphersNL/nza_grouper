@@ -120,7 +120,6 @@ class Subtraject:
 
     def get_grouperjaar(self):
         return self._grouperjaar
-        # return str(self._begindatum[:4])
   
 
 if __name__ == "__main__":

@@ -103,6 +103,7 @@ def process_referentietabellen(file_path, save_path_pickles):
                 filtered_df = filtered_df.select(pl.exclude("BeginDatum", "VersieDatum", "EindDatum"))
                 filtered_df = filtered_df.unique(keep="last")  # We doen deze stappen zodat we geen halfverwege-veranderaars hebben die dubbel meekomen
                 filtered_df = filtered_df.rename(str.lower)
+                
                 if node_name in ['ZorgActiviteiten', 'Specialismen', 'ZorgVragen', 'Diagnosen']:
                     values_dict, header_dict = dh.polars_df_naar_dict(filtered_df, unique_names[index])
                     save_object_as_pickle(values_dict, os.path.join(save_path_pickles, f"{jaar}_{node_name}_values.pkl"))
