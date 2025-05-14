@@ -35,13 +35,13 @@ De data map heeft de volgende structuur:
 
 ```
 data/
-├── grouper_bestaden/    # Subfolder met de XMLs met boombestanden en referenties
-├── grouper_pickles/     # Subfolder met de verwerkte grouper bestanden voor elk jaar
-└── subtrajecten_input/  # Subfolder met data in gespecificeerd formaat om te grouperen
+├── grouper_bestaden/    # De XMLs met boombestanden en referenties
+├── grouper_pickles/     # De verwerkte grouper bestanden voor elk jaar
+└── subtrajecten_input/  # Waar de data moet staan zoals in onderstaand kopje aangegeven
 ```
 
 ### Invoerformaat
-Het verwachte formaat voor de invoerdata is als volgt (in CSV formaat met ; als seperator):
+Het verwachte formaat voor de invoerdata in subtrajecten_input is als volgt (in CSV formaat met ; als seperator):
 ``` CSV
 +----------------+---------+----------+--------------+----------------+----------+--------------+-------------+------------------+------------+-----------+
 | Subtrajectnr   | leeftijd| geslacht | dbcOpenDatum | SpecialismeCode| zorgtype | ZorgVraagCode| DiagnoseCode| ZorgActiviteitCode| za_datum   | aantal_za |
@@ -68,7 +68,7 @@ Vervolgens kan je de code afzonderlijk afvuren vanuit grouper.py of eventueel de
 - Revalidatie en de daarbij passende rekenregels toevoegen
 - Dockerfile aanpassen en updaten
 - Algemene refactoring van de code
-- Kijken of het nog sneller kan draaien door vooruitstrevend te grouperen (dus huidige node en alvast de node vooruit)
+- Kijken of het nog sneller kan draaien door vooruitstrevend te grouperen (dus huidige node en de node vooruit)
 - Commentaar/documentatie code toevoegen
 
 ## Bijdragen
