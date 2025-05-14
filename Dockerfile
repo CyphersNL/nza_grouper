@@ -185,7 +185,6 @@ ADD data/grouper_pickles /home/data/grouper_pickles
 ADD data/subtraject_input/ /home/data/subtraject_input/
 WORKDIR /home
 
-# We need to define the command to launch when we are going to run the image.
-# We use the keyword 'CMD' to do that.
-# The following command will execute "python ./main.py".
+# Afvuren van de grouper met Python3.
+# Let op: dit werkt pas als we alle grouper bestanden, etc. klaar hebben staan.
 CMD [ "python3", "src/grouper.py" ]
