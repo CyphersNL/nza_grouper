@@ -4,17 +4,14 @@
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![Status: In Development](https://img.shields.io/badge/Status-In%20Development-orange.svg)]()
 
-Dit is een grouper van de NZA geschreven in Python die nog in ontwikkeling is. Het is momenteel mogelijk om met de grouper voor bijna alle specialismes zorgproducten te bepalen. Revalidatie en de specifieke regels die daarbij horen wat betreft minuten en meer komen er momenteel nog niet goed uit. Het is getest op de grouperbestanden RZ24b voor het jaar 2021, en daar lijken correcte resultaten uit te komen.
+Dit is een (onofficiële) Python implementatie van de NZA grouper die gebruikt wordt om zorgproducten te bepalen voor subtrajecten in de DBC-systematiek. Met de huidige code is het mogelijk om met de grouper voor bijna alle specialismes zorgproducten te bepalen. Revalidatie en de specifieke regels die daarbij horen wat betreft minuten en dergelijke komen er momenteel nog niet goed uit. Het is getest op het grouperbestanden RZ24b.
 
 ## Inhoudsopgave
-- [Beschrijving](#beschrijving)
 - [Hoe werkt de grouper](#hoe-werkt-de-grouper)
 - [Data map structuur](#Data-map-structuur)
 - [Installatie](#installatie)
 - [TODO](#todo)
 
-## Beschrijving
-De NZA Grouper is een Python-implementatie van het Nederlandse Zorgautoriteit (NZA) grouperingssysteem. Dit systeem wordt gebruikt om zorgactiviteiten te groeperen in zorgproducten volgens de NZA-regels en richtlijnen.
 
 ## Hoe werkt de grouper
 
